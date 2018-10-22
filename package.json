@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ClementDums/twitterNodejs/issues"
   },
-  "homepage": "https://github.com/ClementDums/twitterNodejs#readme"
+  "homepage": "https://github.com/ClementDums/twitterNodejs#readme",
+  "dependencies": {
+    "ws": "^6.1.0"
+  }
 }
