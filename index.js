@@ -8,6 +8,6 @@ wsServer.on("connection", ws => {
 
     });
     const socketStr = new SocketStream(ws);
-    stream.pipe(stringify).pipe(filter).pipe(socketStr);
+    stream.pipe(tweetExtractor).pipe(stringify).pipe(filter).pipe(socketStr);
 });
 
