@@ -1,22 +1,13 @@
 {
-  "name": "twitternodejs",
+  "name": "twitterproject",
   "version": "1.0.0",
-  "description": "\"# twitterNodejs\" \r Depot du projet : Je vais ajouter les éléments un par un afin d'avoir des commits séparés",
-  "main": "index.js",
+  "description": "",
+  "main": "twitterInit.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ClementDums/twitterNodejs.git"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ClementDums/twitterNodejs/issues"
-  },
-  "homepage": "https://github.com/ClementDums/twitterNodejs#readme",
   "dependencies": {
     "dotenv": "^6.1.0",
     "twitter": "^1.7.1",
