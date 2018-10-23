@@ -20,78 +20,47 @@ const stringify = new Transform({
 
     }
 });
-let badwords = [" anal ","anus"," arse "," ass ","ballsack","balls","bastard","bitch","biatch",
-    "bloody",
-    "blowjob",
-    "bollock",
-    "bollok",
+let badwords = [" anal "," ass ","ballsack","balls","bastard","bitch","biatch","bloody",
     "boner",
     "boob",
-    "bugger",
-    "bum",
     "butt",
-    "buttplug",
-    "clitoris",
     "cock",
-    "coon",
     "cunt",
     "damn",
     "dick",
-    "dildo",
-    "dyke",
     "fag",
-    "feck",
-    "fellate",
-    "fellatio",
-    "felching",
-    "fuck",
-    "fudgepacker",
-    "fudge packer",
-    "flange",
-    "Goddamn",
-    "God damn",
+    " fuck ",
     "hell",
-    "homo",
-    "jerk",
-    "jizz",
-    "knobend",
-    "knob end",
-    "labia",
-    "muff",
     "nigger",
     "nigga",
     "penis",
     "piss",
     "poop",
-    "prick",
-    "pube",
     "pussy",
-    "queer",
-    "scrotum",
     " sex ",
-    "shit",
+    " sexual ",
+    " shit ",
     "slut",
-    "smegma",
-    "spunk",
     " tits ",
-    "tosser",
-    "turd",
-    "twat",
-    "vagina",
-    "wank",
-    "whore"]
+    "whore"];
+
+let goodwords = [" cute " ," kitty ", " cupcake ", " nekko ", " kind ", " kawaii ", " friendly ", " gentle ", " pony ", " baby ", " cute baby ", " peperoni "," kitten "," pretty "," spaghetti "," bear cub "
+, " adorable "," heaven "," cool man "," awesome person "," kiss "," hug "," cute kitty "," hug time "," attractive "," puppy "," cute puppy "," pandas "," panda "]
 const filter= new Transform({
     writableObjectMode: true,
     transform(chunk, encoding, callback){
         let testfinal = false;
-        badwords.forEach((value) => {
+        let newChunk;
+        badwords.forEach((value, index) => {
             let test = chunk.toString().includes(value);
+
             if(test){
+                newChunk = chunk.toString().replace(value, "<span class='good'>"+goodwords[index]+"</span>");
                 testfinal=1;
         }
         });
         if(testfinal) {
-            this.push(chunk);
+            this.push(newChunk);
         }
         callback();
     }
